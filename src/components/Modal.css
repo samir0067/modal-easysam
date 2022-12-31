@@ -1,0 +1,53 @@
+.backgroundModal {
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(200, 200, 200, 0.8);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerModal {
+    width: 300px;
+    height: 200px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.containerModal .titleModal {
+    text-align: center;
+}
+
+.containerModal .bodyModal {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.containerModal .footerModal {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerModal .footerModal button {
+    width: 110px;
+    height: 40px;
+    margin: 5px;
+    border: none;
+    color: white;
+    background-color: #6E8510;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}

@@ -1,52 +1,32 @@
-import React, { FC } from "react";
-import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-import CloseIcon from "@mui/icons-material/Close";
+import React from "react";
+import "./Modal.css";
 
 interface ModalProps {
-  isOpen: boolean;
   title: string;
-  handleClose: () => void;
+  isOpen: boolean;
+  setIsOpen: () => void;
   content: JSX.Element;
-  colorTitle?: string;
 }
 
-export const Modal: FC<ModalProps> = ({ isOpen, title, colorTitle, handleClose, content }: ModalProps) => {
-  const theme = useTheme();
-  const downSm = useMediaQuery(theme.breakpoints.down("sm"));
-
-  return (
-    <Dialog
-      open={isOpen}
-      fullScreen={downSm}
-      onClose={handleClose}
-      sx={{ "& .MuiDialog-paper": { borderRadius: downSm ? "0px" : "9px" } }}
-    >
-      <IconButton
-        aria-label="close"
-        onClick={handleClose}
-        sx={{ position: "absolute", top: "0", right: "0", display: "block" }}
-      >
-        <CloseIcon />
-      </IconButton>
-      <DialogTitle
-        display="flex"
-        justifyContent="center"
-        textAlign="center"
-        color={colorTitle}
-        marginX="1rem"
-        marginY={downSm ? "32px" : "16px"}
-      >
-        {title}
-      </DialogTitle>
-      <DialogContent sx={{ display: "flex", alignItems: "center", flexDirection: downSm ? "column" : "row" }}>
-        {content}
-      </DialogContent>
-    </Dialog>
-  );
-};
-
-Modal.defaultProps = {
-  colorTitle: "#000000",
+/**
+ * Modal components, to inform the user
+ * @param {function} setIsOpen
+ * @param {string} title
+ * @param {boolean} isOpen
+ * @param {JSX.Element} content
+ */
+export const Modal = ({ setIsOpen, title, isOpen, content }: ModalProps) => {
+  return isOpen ? (
+    <div className="backgroundModal">
+      <div className="containerModal">
+        <div className="titleModal">
+          <h3>{title}</h3>
+        </div>
+        <div className="bodyModal">{content}</div>
+        <div className="footerModal">
+          <button onClick={setIsOpen}>Continue</button>
+        </div>
+      </div>
+    </div>
+  ) : null;
 };
