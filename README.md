@@ -15,7 +15,7 @@ The library can be updated regularly to add new features and fix bugs. You can c
 Install this package:
 
 ```shell
-npm add modal-easysam
+npm install modal-easysam || yarn add modal-easysam
 ```
 
 Import the Modal component:
